@@ -156,7 +156,7 @@ def algorithm_fmax_gmax_cmax(products):
     return S_e
 
 
-# 主函数
+# Main function
 def main():
     job_sizes = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
     results = []
