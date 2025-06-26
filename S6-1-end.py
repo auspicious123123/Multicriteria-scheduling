@@ -183,7 +183,7 @@ def main():
             run_times.append(run_time)
 
             print(f"Identified Pareto Points (Cmax, fmax): {pareto_points}")
-            print(f"Execution Time: {run_time:.6e} 秒")
+            print(f"Execution Time: {run_time:.6e} S")
             print("-" * 50)
 
         max_run_time = max(run_times)
