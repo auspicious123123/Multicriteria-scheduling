@@ -82,7 +82,7 @@ def lawler_order(unique_processing_times, jobs, priority_relations):
     return lawler_schedule
 
 
-# Algorithm Cmax-Fmax 算法
+# Algorithm Cmax-Fmax
 def algorithm_cmax_fmax(unique_processing_times, common_processing_times, priority_relations, delta):
     num_jobs = len(unique_processing_times)
     PO_T = []
@@ -162,7 +162,7 @@ def algorithm_cmax_fmax(unique_processing_times, common_processing_times, priori
     return pareto_points
 
 
-# 主函数
+# Main function
 def main():
     job_counts = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
     results = []
@@ -170,11 +170,11 @@ def main():
         run_times = []
         for _ in range(10):
             unique_processing_times, common_processing_times, priority_relations, delta = generate_jobs(num_jobs)
-            print(f"作业数量: {num_jobs}")
-            print(f"唯一子组件加工时间: {unique_processing_times}")
-            print(f"公共组件加工时间: {common_processing_times}")
-            print(f"优先级关系: {priority_relations}")
-            print(f"批次设置时间: {delta}")
+            print(f"Number of Jobs: {num_jobs}")
+            print(f"Processing Time of the Unique Subcomponent: {unique_processing_times}")
+            print(f"Processing Time of the Common Component: {common_processing_times}")
+            print(f"Priority Relationship: {priority_relations}")
+            print(f"Batch Setup Time: {delta}")
 
             start_time = time.time()
             pareto_points = algorithm_cmax_fmax(unique_processing_times, common_processing_times, priority_relations, delta)
@@ -182,19 +182,19 @@ def main():
             run_time = end_time - start_time
             run_times.append(run_time)
 
-            print(f"找到的帕累托点 (Cmax, fmax): {pareto_points}")
-            print(f"运行时间: {run_time:.6e} 秒")
+            print(f"Identified Pareto Points (Cmax, fmax): {pareto_points}")
+            print(f"Execution Time: {run_time:.6e} 秒")
             print("-" * 50)
 
         max_run_time = max(run_times)
         avg_run_time = sum(run_times) / len(run_times)
         results.append({
-            '作业数量': num_jobs,
-            '最大运行时间': f"{max_run_time:.6e}",
-            '平均运行时间': f"{avg_run_time:.6e}"
+            'Number of Jobs': num_jobs,
+            'Maximum Execution Time': f"{max_run_time:.6e}",
+            'Average Execution Time': f"{avg_run_time:.6e}"
         })
 
-    # 汇总成表格
+    # Summarize into a table
     df = pd.DataFrame(results)
     print(df)
 
